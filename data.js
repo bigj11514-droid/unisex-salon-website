@@ -95,6 +95,12 @@ const services = {
   ],
 };
 const packages = {
-  women: [["The Glow Reset", "Cut & finish + express facial", "$99"], ["Color Ritual", "Gloss refresh + deep conditioning", "$145"]],
-  men: [["The Full Reset", "Precision cut + beard design", "$75"], ["The Clean Start", "Cut + hot towel scalp ritual", "$65"]],
+  women: [
+    ["The Glow Reset", "Cut & finish + express facial", "$99"],
+    ["Color Ritual", "Gloss refresh + deep conditioning", "$145"],
+  ],
+  men: [
+    ["The Full Reset", "Precision cut + beard design", "$75"],
+    ["The Clean Start", "Cut + hot towel scalp ritual", "$65"],
+  ],
 };

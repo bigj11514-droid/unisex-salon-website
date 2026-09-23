@@ -81,3 +81,122 @@
 	.style-hero-copy .hero-actions .button-dark { width: min(100%, 280px); }
 	.booking-form .button-light { width: 100%; }
 }
+
+/* Crisp 2px corners and a more visible CTA color system. Circular artwork stays circular. */
+.site-header .header-cta,
+.button,
+.side-choice,
+.offer-card,
+.package-card,
+.qr-panel,
+.product-modal,
+.feature-list span,
+.review-form input,
+.review-form select,
+.booking-form input,
+.booking-form select {
+	border-radius: 2px;
+}
+.site-header .header-cta {
+	background: var(--rose-deep);
+	border: 1px solid var(--rose-deep);
+	box-shadow: 4px 4px 0 var(--ink);
+}
+.site-header .header-cta:hover {
+	background: var(--ink);
+	border-color: var(--ink);
+	box-shadow: 2px 2px 0 var(--rose-deep);
+}
+.men-page .site-header .header-cta {
+	background: var(--teal-deep);
+	border-color: var(--teal-deep);
+	box-shadow: 4px 4px 0 var(--ink);
+}
+.men-page .site-header .header-cta:hover {
+	background: var(--ink);
+	border-color: var(--ink);
+	box-shadow: 2px 2px 0 var(--teal-deep);
+}
+.button-dark,
+.style-hero-copy .hero-actions .button-dark {
+	background: var(--rose-deep);
+	border: 1px solid var(--rose-deep);
+	color: var(--white);
+}
+.button-dark:hover,
+.style-hero-copy .hero-actions .button-dark:hover {
+	background: var(--ink);
+	border-color: var(--ink);
+}
+.men-page .button-dark,
+.men-page .style-hero-copy .hero-actions .button-dark {
+	background: var(--teal-deep);
+	border-color: var(--teal-deep);
+}
+.men-page .button-dark:hover,
+.men-page .style-hero-copy .hero-actions .button-dark:hover {
+	background: var(--ink);
+	border-color: var(--ink);
+}
+.booking-form .button-light {
+	background: var(--rose);
+	border: 1px solid var(--rose);
+	color: var(--ink);
+}
+.booking-form .button-light:hover {
+	background: var(--white);
+	border-color: var(--white);
+}
+.men-page .booking-form .button-light {
+	background: var(--teal);
+	border-color: var(--teal);
+}
+.men-page .booking-form .button-light:hover {
+	background: var(--white);
+	border-color: var(--white);
+}
+.button-outline:hover {
+	background: var(--rose);
+	border-color: var(--rose);
+}
+.men-page .button-outline:hover {
+	background: var(--teal);
+	border-color: var(--teal);
+}
+.package-link,
+.contact-actions a {
+	border-radius: 2px;
+}
+.hero-price-link {
+	align-items: center;
+	display: inline-flex;
+	gap: 11px;
+	min-width: 170px;
+	transition: transform .25s;
+}
+.hero-price-link:hover { transform: translateY(-3px); }
+.price-icon {
+	align-items: center;
+	background: var(--rose);
+	border: 1px solid var(--rose-deep);
+	border-radius: 50%;
+	color: var(--ink);
+	display: flex;
+	font: 1.15rem var(--display);
+	height: 38px;
+	justify-content: center;
+	width: 38px;
+}
+.hero-price-link > span:last-child { display: grid; gap: 4px; }
+.hero-price-link strong { font: .7rem var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.hero-price-link small { color: var(--muted); font-size: .64rem; }
+.men-page .price-icon {
+	background: var(--teal);
+	border-color: var(--teal-deep);
+}
+.men-page .hero-price-link strong { color: var(--teal-deep); }
+.hero-actions { flex-wrap: wrap; row-gap: 20px; }
+.site-header .header-cta { white-space: nowrap; }
+@media (max-width: 800px) {
+	.hero-price-link { margin-top: 3px; }
+}

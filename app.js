@@ -19,7 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.querySelectorAll("[data-package-list]").forEach((list) => {
     list.innerHTML = packages[list.dataset.packageList]
-      .map((item, index) => `<article class="package-card"><span>0${index + 1}</span><div><h3>${item[0]}</h3><p>${item[1]}</p></div><strong>${item[2]}</strong><a href="#booking" class="package-link">Book ↗</a></article>`)
+      .map(
+        (item, index) =>
+          `<article class="package-card"><span>0${index + 1}</span><div><h3>${item[0]}</h3><p>${item[1]}</p></div><strong>${item[2]}</strong><a href="#booking" class="package-link">Book ↗</a></article>`,
+      )
       .join("");
   });
   document
@@ -58,7 +61,8 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   document.querySelectorAll("[data-side-switch]").forEach((button) => {
     button.addEventListener("click", () => {
-      window.location.href = button.dataset.sideSwitch === "women" ? "women.html" : "men.html";
+      window.location.href =
+        button.dataset.sideSwitch === "women" ? "women.html" : "men.html";
     });
   });
 });
