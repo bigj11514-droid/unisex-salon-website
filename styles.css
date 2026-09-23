@@ -179,7 +179,20 @@
 .package-title strong { font: .85rem var(--mono); }
 .package-details { color: var(--muted); font-size: .82rem; line-height: 1.65; margin: 22px 0 14px; max-width: 470px; }
 .package-products { color: var(--muted); font-size: .72rem; line-height: 1.6; margin: 0 0 20px; max-width: 470px; }
-.package-products b { color: var(--ink); font: .62rem var(--mono); letter-spacing: .08em; margin-right: 6px; text-transform: uppercase; }
+.package-products b { color: var(--ink); display: block; font: .62rem var(--mono); letter-spacing: .08em; margin-bottom: 8px; text-transform: uppercase; }
+.package-products ul { display: grid; gap: 5px; list-style: none; margin: 0; padding: 0; }
+.package-products li { align-items: center; display: flex; gap: 8px; }
+.package-products li::before { color: var(--rose-deep); content: "+"; font: .8rem var(--mono); }
+.men-page .package-products li::before { color: var(--teal-deep); }
+.style-hero-copy { align-self: center; color: var(--white); isolation: isolate; overflow: hidden; position: relative; }
+.style-hero-copy::before { background: linear-gradient(90deg, rgba(27,15,19,.88), rgba(27,15,19,.52)), url('https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1400&q=85') center / cover; content: ''; inset: 0; position: absolute; z-index: -2; }
+.style-hero-copy::after { background: var(--rose-deep); content: ''; height: 5px; left: 0; position: absolute; right: 0; top: 0; z-index: -1; }
+.men-page .style-hero-copy::before { background: linear-gradient(90deg, rgba(9,20,22,.9), rgba(9,20,22,.54)), url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1400&q=85') center / cover; }
+.men-page .style-hero-copy::after { background: var(--teal); }
+.style-hero-copy .eyebrow, .style-hero-copy > p:not(.eyebrow) { color: rgba(255,255,255,.8); }
+.style-hero-copy .text-link { border-color: var(--white); color: var(--white); }
+.style-hero-copy .hero-price-link small { color: rgba(255,255,255,.72); }
+.style-hero-copy .hero-price-link strong { color: var(--white); }
 .package-duration { color: var(--rose-deep); font: .63rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .men-page .package-duration { color: var(--teal-deep); }
 .package-link { background: var(--rose-deep); color: var(--white); display: inline-block; margin-left: 20px; padding: 10px 12px; }
