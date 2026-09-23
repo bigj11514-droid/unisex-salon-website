@@ -17,6 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
       )
       .join("");
   });
+  document.querySelectorAll("[data-package-list]").forEach((list) => {
+    list.innerHTML = packages[list.dataset.packageList]
+      .map((item, index) => `<article class="package-card"><span>0${index + 1}</span><div><h3>${item[0]}</h3><p>${item[1]}</p></div><strong>${item[2]}</strong><a href="#booking" class="package-link">Book ↗</a></article>`)
+      .join("");
+  });
   document
     .querySelectorAll(".product-card")
     .forEach((card) =>
@@ -34,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
       event.preventDefault();
       const name = form.elements.name.value.trim();
       const message = form.querySelector(".form-note");
-      message.textContent = `Thanks ${name || "there"} — we received your request. We’ll call to confirm your chair.`;
+      const service = form.elements.service.value;
+      message.textContent = `Thanks ${name || "there"} — your ${service || "booking"} request is in. We’ll call to confirm your chair.`;
       form.reset();
     }),
   );
@@ -50,6 +56,11 @@ document.addEventListener("DOMContentLoaded", () => {
     .forEach((el) =>
       requestAnimationFrame(() => el.classList.add("is-visible")),
     );
+  document.querySelectorAll("[data-side-switch]").forEach((button) => {
+    button.addEventListener("click", () => {
+      window.location.href = button.dataset.sideSwitch === "women" ? "women.html" : "men.html";
+    });
+  });
 });
 function productCard(product) {
   return `<article class="product-card" data-product="${product.id}" tabindex="0" role="button"><div class="product-image"><img src="${product.image}" alt="${product.name} product"><span class="product-plus">+</span></div><div class="product-meta"><div><span>${product.category}</span><h3>${product.name}</h3></div><strong>${product.price}</strong></div></article>`;
