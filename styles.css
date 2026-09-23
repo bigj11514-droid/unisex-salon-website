@@ -43,3 +43,41 @@
 .contact-actions { display: flex; gap: 20px; }
 @media (max-width: 800px) { .site-header { min-height: 72px; padding: 0 6vw; } .menu-toggle { display: block; order: 2; } .header-cta { order: 1; margin-left: auto; margin-right: 20px; } .main-nav { background: var(--paper); display: none; flex-direction: column; gap: 25px; left: 0; padding: 30px 6vw; position: absolute; right: 0; top: 72px; } .main-nav.open { display: flex; } .site-header > .main-nav { order: 3; } .hero-shell { min-height: 760px; padding: 12vh 8vw; } .hero-orbit { opacity: .65; right: -28vw; top: 36vh; width: 100vw; } h1 { font-size: clamp(4rem, 18vw, 7rem); } .hero-foot { bottom: 25px; width: 84%; } .split-intro { display: block; padding: 22vw 8vw 17vw; } .split-intro .section-marker { margin-bottom: 50px; } .split-body { margin-top: 38px; } .experience-grid, .style-hero, .visit-section, .booking-panel { grid-template-columns: 1fr; } .experience-card { min-height: 580px; } .products-section, .service-section, .product-section-page, .visit-section, .offers-section, .package-section { padding: 22vw 8vw; } .section-heading { align-items: start; display: block; margin-bottom: 40px; } .section-heading > a, .section-note, .qr-link { margin-top: 30px; } .product-strip, .product-grid { gap: 30px 15px; grid-template-columns: repeat(2, 1fr); } .offer-grid { grid-template-columns: 1fr; } .side-choice { grid-template-columns: 30px 1fr; } .side-choice small { grid-column: 2; } .booking-section { padding: 20vw 8vw; } .booking-form { margin-top: 20px; } .visit-section { min-height: 0; } .map-art { margin-top: 70px; min-height: 340px; } .site-footer { align-items: start; flex-direction: column; gap: 20px; } .style-hero-copy { padding: 20vw 8vw; } .style-hero-photo { min-height: 500px; } .pricing-main { display: block; padding: 20vw 8vw; } .qr-panel { margin: 50px 0; max-width: 220px; } .product-modal { display: block; max-height: 92vh; } .modal-image img { min-height: 250px; max-height: 300px; } .modal-content { padding: 35px 25px; } .modal-content h2 { font-size: 2.8rem; } .package-card { grid-template-columns: 30px 1fr auto; } .package-link { grid-column: 2 / -1; justify-self: start; } .contact-actions { flex-wrap: wrap; } }
 @media (max-width: 430px) { .header-cta { font-size: .58rem; } .product-meta { display: block; } .product-meta strong { display: block; margin-top: 9px; } .review-form { flex-wrap: wrap; } .review-form input { width: 100%; } }
+
+/* Premium CTA hierarchy */
+.site-header .header-cta {
+	background: var(--ink);
+	border: 0;
+	color: var(--white);
+	padding: 13px 17px;
+	transition: background .2s, transform .2s;
+}
+.site-header .header-cta:hover { background: var(--rose-deep); transform: translateY(-2px); }
+.men-page .site-header .header-cta:hover { background: var(--teal-deep); }
+.style-hero-copy .hero-actions .button-dark,
+.booking-form .button-light {
+	box-shadow: 7px 7px 0 var(--rose);
+	font-weight: 500;
+	min-height: 54px;
+	padding-left: 25px;
+	padding-right: 25px;
+}
+.men-page .style-hero-copy .hero-actions .button-dark { box-shadow: 7px 7px 0 var(--teal); }
+.style-hero-copy .hero-actions .button-dark:hover,
+.booking-form .button-light:hover { box-shadow: 3px 3px 0 var(--rose); }
+.men-page .style-hero-copy .hero-actions .button-dark:hover { box-shadow: 3px 3px 0 var(--teal); }
+.side-choice { transition: background .25s, border-color .25s, transform .25s; }
+.side-choice:hover { transform: translateX(7px); }
+.side-choice-women strong { color: var(--rose-deep); }
+.side-choice-men strong { color: var(--teal-deep); }
+.offer-card .text-link, .package-link { font-weight: 500; }
+.contact-actions a { padding: 7px 0; transition: color .2s; }
+.contact-actions a:hover { color: var(--rose); }
+.men-page .contact-actions a:hover { color: var(--teal); }
+.booking-form .button-light { margin-top: 8px; width: fit-content; }
+@media (max-width: 800px) {
+	.site-header .header-cta { padding: 10px 12px; }
+	.style-hero-copy .hero-actions { align-items: flex-start; flex-direction: column; gap: 22px; }
+	.style-hero-copy .hero-actions .button-dark { width: min(100%, 280px); }
+	.booking-form .button-light { width: 100%; }
+}
