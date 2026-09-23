@@ -167,6 +167,30 @@
 .contact-actions a {
 	border-radius: 2px;
 }
+.package-card { display: grid; grid-template-columns: minmax(180px, .34fr) 1fr; gap: 30px; padding: 0; }
+.package-image { min-height: 255px; overflow: hidden; position: relative; }
+.package-image img { display: block; height: 100%; object-fit: cover; transition: transform .5s; width: 100%; }
+.package-card:hover .package-image img { transform: scale(1.05); }
+.package-image > span { background: var(--rose); bottom: 12px; color: var(--ink); font: .65rem var(--mono); left: 12px; padding: 8px; position: absolute; }
+.men-page .package-image > span { background: var(--teal); }
+.package-copy { padding: 25px 25px 25px 0; position: relative; }
+.package-title { align-items: start; display: flex; justify-content: space-between; }
+.package-title h3 { font-size: 1.6rem; margin: 0 0 6px; }
+.package-title strong { font: .85rem var(--mono); }
+.package-details { color: var(--muted); font-size: .82rem; line-height: 1.65; margin: 22px 0 14px; max-width: 470px; }
+.package-products { color: var(--muted); font-size: .72rem; line-height: 1.6; margin: 0 0 20px; max-width: 470px; }
+.package-products b { color: var(--ink); font: .62rem var(--mono); letter-spacing: .08em; margin-right: 6px; text-transform: uppercase; }
+.package-duration { color: var(--rose-deep); font: .63rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+.men-page .package-duration { color: var(--teal-deep); }
+.package-link { background: var(--rose-deep); color: var(--white); display: inline-block; margin-left: 20px; padding: 10px 12px; }
+.package-link:hover { background: var(--ink); }
+.men-page .package-link { background: var(--teal-deep); }
+.men-page .package-link:hover { background: var(--ink); }
+.service-products { color: var(--muted); display: block; font: .61rem var(--mono); letter-spacing: .04em; line-height: 1.5; margin-top: 8px; text-transform: uppercase; }
+.booking-focus { animation: bookingPulse 1.4s ease; }
+@keyframes bookingPulse { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--rose); } }
+.men-page .booking-focus { animation-name: bookingPulseMen; }
+@keyframes bookingPulseMen { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--teal); } }
 .hero-price-link {
 	align-items: center;
 	display: inline-flex;
@@ -199,4 +223,7 @@
 .site-header .header-cta { white-space: nowrap; }
 @media (max-width: 800px) {
 	.hero-price-link { margin-top: 3px; }
+	.package-card { display: block; }
+	.package-image { min-height: 220px; }
+	.package-copy { padding: 24px 0; }
 }

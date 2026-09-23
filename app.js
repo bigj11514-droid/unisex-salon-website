@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     list.innerHTML = packages[list.dataset.packageList]
       .map(
         (item, index) =>
-          `<article class="package-card"><span>0${index + 1}</span><div><h3>${item[0]}</h3><p>${item[1]}</p></div><strong>${item[2]}</strong><a href="#booking" class="package-link">Book ↗</a></article>`,
+          `<article class="package-card" data-package-service="${item.name}"><div class="package-image"><img src="${item.image}" alt="${item.name} service"><span>0${index + 1}</span></div><div class="package-copy"><div class="package-title"><div><h3>${item.name}</h3><p>${item.summary}</p></div><strong>${item.price}</strong></div><p class="package-details">${item.details}</p><p class="package-products"><b>Products used</b> ${item.products}</p><span class="package-duration">${item.duration}</span><a href="#booking" class="package-link" data-book-package="${item.name}">Book this ritual ↗</a></div></article>`,
       )
       .join("");
   });
@@ -63,6 +63,14 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       window.location.href =
         button.dataset.sideSwitch === "women" ? "women.html" : "men.html";
+    });
+  });
+  document.querySelectorAll("[data-book-package]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const form = document.querySelector("#bookingForm");
+      if (!form) return;
+      form.classList.add("booking-focus");
+      window.setTimeout(() => form.classList.remove("booking-focus"), 1400);
     });
   });
 });
