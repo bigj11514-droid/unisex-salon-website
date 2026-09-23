@@ -193,6 +193,19 @@
 .style-hero-copy .text-link { border-color: var(--white); color: var(--white); }
 .style-hero-copy .hero-price-link small { color: rgba(255,255,255,.72); }
 .style-hero-copy .hero-price-link strong { color: var(--white); }
+.style-hero-copy::before { transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .75s ease; }
+.style-hero-copy:hover::before { filter: saturate(1.12); transform: scale(1.08); }
+.style-hero-copy h1 { cursor: default; position: relative; transition: color .35s, letter-spacing .35s, transform .35s; }
+.style-hero-copy h1:hover { letter-spacing: -.035em; transform: translateX(6px); }
+.style-hero-copy h1 em { display: inline-block; transition: color .35s, transform .35s; }
+.style-hero-copy h1:hover em { color: var(--rose); transform: translateX(10px); }
+.men-page .style-hero-copy h1:hover em { color: var(--teal); }
+.style-hero-copy h1::after { color: rgba(255,255,255,.55); content: 'MOVE WITH INTENT'; display: block; font: .57rem var(--mono); letter-spacing: .16em; margin-top: 25px; opacity: 0; transform: translateY(7px); transition: opacity .35s, transform .35s; }
+.style-hero-copy h1:hover::after { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+	.style-hero-copy::before, .style-hero-copy h1, .style-hero-copy h1 em, .style-hero-copy h1::after { transition: none; }
+	.style-hero-copy:hover::before { transform: none; }
+}
 .package-duration { color: var(--rose-deep); font: .63rem var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .men-page .package-duration { color: var(--teal-deep); }
 .package-link { background: var(--rose-deep); color: var(--white); display: inline-block; margin-left: 20px; padding: 10px 12px; }

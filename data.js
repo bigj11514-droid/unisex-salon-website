@@ -96,11 +96,59 @@ const services = {
 };
 const packages = {
   women: [
-    { name: "The Glow Reset", summary: "Cut & finish + express facial", price: "$99", duration: "90 min", image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85", details: "A polished shape and luminous skin reset for an instantly refreshed finish.", products: ["Cloud Gloss", "Soft Reset mask", "Mineral SPF veil"] },
-    { name: "Color Ritual", summary: "Gloss refresh + deep conditioning", price: "$145", duration: "120 min", image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85", details: "A color-maintenance ritual that revives dimension while restoring softness and shine.", products: ["Chrome Mist color guard", "Bond-repair cream", "Cloud Gloss"] },
+    {
+      name: "The Glow Reset",
+      summary: "Cut & finish + express facial",
+      price: "$99",
+      duration: "90 min",
+      image:
+        "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=900&q=85",
+      details:
+        "A polished shape and luminous skin reset for an instantly refreshed finish.",
+      products: ["Cloud Gloss", "Soft Reset mask", "Mineral SPF veil"],
+    },
+    {
+      name: "Color Ritual",
+      summary: "Gloss refresh + deep conditioning",
+      price: "$145",
+      duration: "120 min",
+      image:
+        "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85",
+      details:
+        "A color-maintenance ritual that revives dimension while restoring softness and shine.",
+      products: ["Chrome Mist color guard", "Bond-repair cream", "Cloud Gloss"],
+    },
   ],
   men: [
-    { name: "The Full Reset", summary: "Precision cut + beard design", price: "$75", duration: "75 min", image: "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85", details: "A complete shape-up with a considered cut, beard architecture, and hot towel finish.", products: ["Form / 03 matte paste", "Night Shift beard oil", "Clean Guard wash"] },
-    { name: "The Clean Start", summary: "Cut + hot towel scalp ritual", price: "$65", duration: "60 min", image: "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85", details: "A precise everyday cut paired with a cooling scalp reset and restorative towel ritual.", products: ["Clean Guard peppermint wash", "Cooling tonic", "Form / 03 finish"] },
+    {
+      name: "The Full Reset",
+      summary: "Precision cut + beard design",
+      price: "$75",
+      duration: "75 min",
+      image:
+        "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
+      details:
+        "A complete shape-up with a considered cut, beard architecture, and hot towel finish.",
+      products: [
+        "Form / 03 matte paste",
+        "Night Shift beard oil",
+        "Clean Guard wash",
+      ],
+    },
+    {
+      name: "The Clean Start",
+      summary: "Cut + hot towel scalp ritual",
+      price: "$65",
+      duration: "60 min",
+      image:
+        "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
+      details:
+        "A precise everyday cut paired with a cooling scalp reset and restorative towel ritual.",
+      products: [
+        "Clean Guard peppermint wash",
+        "Cooling tonic",
+        "Form / 03 finish",
+      ],
+    },
   ],
 };
