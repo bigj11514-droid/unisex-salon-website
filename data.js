@@ -44,7 +44,7 @@ const products = [
     side: "men",
     name: "Form / 03",
     category: "Style / hair",
-    price: "$26",
+    price: "GH₵ 120",
     image:
       "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
     description:
@@ -58,7 +58,7 @@ const products = [
     side: "men",
     name: "Night Shift Oil",
     category: "Care / beard",
-    price: "$30",
+    price: "GH₵ 150",
     image:
       "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=85",
     description:
@@ -71,7 +71,7 @@ const products = [
     side: "men",
     name: "Clean Guard",
     category: "Care / scalp",
-    price: "$24",
+    price: "GH₵ 110",
     image:
       "https://images.unsplash.com/photo-1559599101-f09722fb4948?auto=format&fit=crop&w=900&q=85",
     description:
@@ -88,10 +88,14 @@ const services = {
     ["Skin ritual", "Express facial, glow reset, brows", "$45+"],
   ],
   men: [
-    ["Precision cut", "Clipper, scissor, wash, finish", "$45+"],
-    ["Signature fade", "Skin fade, taper, texture styling", "$55+"],
-    ["Beard design", "Shape, hot towel, conditioning", "$35+"],
-    ["Full reset", "Cut, beard, hot towel ritual", "$90+"],
+    ["Precision cut", "Clipper, scissor, wash, finish", "GH₵ 180+"],
+    ["Low cut", "Clean low cut, wash, finish", "GH₵ 140+"],
+    ["Signature fade", "Skin fade, taper, texture styling", "GH₵ 220+"],
+    ["Taper cut", "Temple taper, line-up, styling", "GH₵ 180+"],
+    ["Beard trim", "Shape, hot towel, conditioning", "GH₵ 100+"],
+    ["Hair + beard", "Full haircut and beard design", "GH₵ 280+"],
+    ["Kids cut", "Gentle cut and styling for ages 12 and under", "GH₵ 120+"],
+    ["Full reset", "Cut, beard, hot towel ritual", "GH₵ 320+"],
   ],
 };
 const packages = {
@@ -123,7 +127,7 @@ const packages = {
     {
       name: "The Full Reset",
       summary: "Precision cut + beard design",
-      price: "$75",
+      price: "GH₵ 280",
       duration: "75 min",
       image:
         "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
@@ -138,7 +142,7 @@ const packages = {
     {
       name: "The Clean Start",
       summary: "Cut + hot towel scalp ritual",
-      price: "$65",
+      price: "GH₵ 220",
       duration: "60 min",
       image:
         "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",

@@ -131,7 +131,7 @@ function downloadPricing(side) {
     .join("\n");
   const blob = new Blob(
     [
-      `NOIR & NERVE — ${side === "women" ? "HER ENERGY" : "HIS EDGE"} PRICE LIST\n\n${rows}\n\n18 Mercer Lane, City Centre | +1 555 018 490`,
+      `NOIR & NERVE — ${side === "women" ? "HER ENERGY" : "HIS EDGE"} PRICE LIST\n\n${rows}\n\n18 Mercer Lane, City Centre | ${side === "men" ? "+233 55 501 8490" : "+1 555 018 490"}`,
     ],
     { type: "text/plain" },
   );
