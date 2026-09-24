@@ -20,7 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   document.querySelectorAll("[data-service-menu]").forEach((menu) => {
     const side = menu.dataset.serviceMenu;
-    menu.innerHTML = serviceGroups[side].map((group, groupIndex) => `<article class="service-group"><div class="service-group-heading"><span>0${groupIndex + 1}</span><div><h3>${group.name}</h3><p>${group.intro}</p></div></div><div class="service-options">${group.options.map((option) => `<button class="service-option" type="button" data-service-choice="${option[0]}"><span><strong>${option[0]}</strong><small>${option[1]}</small></span><b>${option[2]}</b><i aria-hidden="true">↗</i></button>`).join("")}</div></article>`).join("");
+    menu.innerHTML = serviceGroups[side]
+      .map(
+        (group, groupIndex) =>
+          `<article class="service-group"><div class="service-group-heading"><span>0${groupIndex + 1}</span><div><h3>${group.name}</h3><p>${group.intro}</p></div></div><div class="service-options">${group.options.map((option) => `<button class="service-option" type="button" data-service-choice="${option[0]}"><span><strong>${option[0]}</strong><small>${option[1]}</small></span><b>${option[2]}</b><i aria-hidden="true">↗</i></button>`).join("")}</div></article>`,
+      )
+      .join("");
   });
   document.querySelectorAll("[data-package-list]").forEach((list) => {
     list.innerHTML = packages[list.dataset.packageList]
@@ -75,10 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
       const form = document.querySelector("#bookingForm");
       if (!form) return;
       const service = form.elements.service;
-      const option = [...service.options].find((item) => item.textContent === choice.dataset.serviceChoice);
+      const option = [...service.options].find(
+        (item) => item.textContent === choice.dataset.serviceChoice,
+      );
       if (option) service.value = option.value;
       form.classList.add("booking-focus");
-      document.querySelectorAll(".service-option.is-selected").forEach((item) => item.classList.remove("is-selected"));
+      document
+        .querySelectorAll(".service-option.is-selected")
+        .forEach((item) => item.classList.remove("is-selected"));
       choice.classList.add("is-selected");
       window.setTimeout(() => form.classList.remove("booking-focus"), 1400);
     });
@@ -145,7 +154,12 @@ function openProduct(id) {
 }
 function downloadPricing(side) {
   const rows = serviceGroups[side]
-    .flatMap((group) => group.options.map((option) => `${group.name} / ${option[0]} | ${option[1]} | ${option[2]}`))
+    .flatMap((group) =>
+      group.options.map(
+        (option) =>
+          `${group.name} / ${option[0]} | ${option[1]} | ${option[2]}`,
+      ),
+    )
     .join("\n");
   const blob = new Blob(
     [
