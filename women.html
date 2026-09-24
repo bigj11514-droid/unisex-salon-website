@@ -39,7 +39,6 @@
         ><a href="women.html#products">Shop products</a
         ><a href="index.html#visit">Visit us</a>
       </nav>
-      <a class="header-cta" href="#booking">Book your chair <span>↗</span></a>
     </header>
     <main>
       <section class="style-hero">
@@ -79,7 +78,11 @@
             <span>↗</span></a
           >
         </div>
-        <div class="service-list">
+        <div class="service-list" data-service-menu="women">
+          <noscript>View our full pricing menu below.</noscript>
+        </div>
+        <!-- Service options are rendered here from the shared service catalog. -->
+        <div class="service-list legacy-service-list" hidden>
           <article>
             <span>01</span>
             <div>
@@ -168,15 +171,10 @@
             ><label
               >Choose your service<select name="service" required>
                 <option value="">Choose a service</option>
-                <option>Cut & finish</option>
-                <option>Color studio</option>
-                <option>Texture & form</option>
-                <option>Highlights & balayage</option>
-                <option>Braids & protective styling</option>
-                <option>Skin ritual</option>
-                <option>Facial & skincare</option>
-                <option>Brows & lashes</option>
-                <option>Manicure & pedicure</option>
+                <option>Classic cut</option><option>Blowout</option><option>Silk press</option>
+                <option>Gloss refresh</option><option>Highlights</option><option>Balayage</option>
+                <option>Natural curls</option><option>Braids</option><option>Protective styling</option>
+                <option>Glow facial</option><option>Brows & lashes</option><option>Manicure</option>
               </select></label
             ><label
               >Preferred date<input type="date" name="date" required /></label
@@ -218,7 +216,7 @@
         <a href="men.html">His edge</a><a href="pricing-women.html">Pricing</a>
       </div>
     </footer>
-    <script src="data.js"></script>
-    <script src="app.js"></script>
+    <script src="data.js?v=service-menu-3"></script>
+    <script src="app.js?v=service-menu-3"></script>
   </body>
 </html>

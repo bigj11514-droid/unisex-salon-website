@@ -39,7 +39,6 @@
         ><a href="men.html#products">Shop products</a
         ><a href="index.html#visit">Visit us</a>
       </nav>
-      <a class="header-cta" href="#booking">Book your chair <span>↗</span></a>
     </header>
     <main>
       <section class="style-hero">
@@ -79,7 +78,10 @@
             <span>↗</span></a
           >
         </div>
-        <div class="service-list">
+        <div class="service-list" data-service-menu="men">
+          <noscript>View our full pricing menu below.</noscript>
+        </div>
+        <div class="service-list legacy-service-list" hidden>
           <article>
             <span>01</span>
             <div>
@@ -275,20 +277,10 @@
             ><label
               >Choose your service<select name="service" required>
                 <option value="">Choose a service</option>
-                <option>Precision cut</option>
-                <option>Signature fade</option>
-                <option>Beard design</option>
-                <option>Full reset</option>
-                <option>Low cut</option>
-                <option>Taper cut</option>
-                <option>Beard trim</option>
-                <option>Hair + beard</option>
-                <option>Kids cut</option>
-                <option>Scissor cut</option>
-                <option>Buzz cut</option>
-                <option>Hot towel shave</option>
-                <option>Scalp treatment</option>
-                <option>Facial & skincare</option>
+                <option>Low fade</option><option>Mid fade</option><option>High fade</option><option>Skin fade</option>
+                <option>Low cut</option><option>Taper cut</option><option>Scissor cut</option><option>Kids cut</option>
+                <option>Beard trim</option><option>Hot towel shave</option><option>Hair + beard</option>
+                <option>Scalp treatment</option><option>Men's facial</option>
               </select></label
             ><label
               >Preferred date<input type="date" name="date" required /></label
@@ -331,7 +323,7 @@
         ><a href="pricing-men.html">Pricing</a>
       </div>
     </footer>
-    <script src="data.js?v=ghana-2"></script>
-    <script src="app.js?v=ghana-2"></script>
+    <script src="data.js?v=service-menu-3"></script>
+    <script src="app.js?v=service-menu-3"></script>
   </body>
 </html>

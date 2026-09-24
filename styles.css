@@ -184,6 +184,25 @@
 .package-products li { align-items: center; display: flex; gap: 8px; }
 .package-products li::before { color: var(--rose-deep); content: "+"; font: .8rem var(--mono); }
 .men-page .package-products li::before { color: var(--teal-deep); }
+.service-list[data-service-menu] { border-top: 0; display: grid; gap: 18px; }
+.service-group { border: 1px solid var(--line); border-radius: 2px; overflow: hidden; }
+.service-group-heading { align-items: center; background: var(--white); display: flex; gap: 22px; padding: 24px; }
+.service-group-heading > span { color: var(--rose-deep); font: .68rem var(--mono); }
+.men-page .service-group-heading > span { color: var(--teal-deep); }
+.service-group-heading h3 { font-size: 1.45rem; margin: 0 0 6px; }
+.service-group-heading p { color: var(--muted); font-size: .75rem; margin: 0; }
+.service-options { display: grid; grid-template-columns: repeat(2, 1fr); }
+.service-option { align-items: center; background: transparent; border: 0; border-top: 1px solid var(--line); display: flex; gap: 16px; justify-content: space-between; padding: 19px 24px; text-align: left; transition: background .25s, padding .25s; }
+.service-option:nth-child(even) { border-left: 1px solid var(--line); }
+.service-option:hover, .service-option.is-selected { background: rgba(232,181,168,.2); padding-left: 29px; }
+.men-page .service-option:hover, .men-page .service-option.is-selected { background: rgba(159,197,189,.22); }
+.service-option strong { display: block; font: .82rem var(--display); margin-bottom: 5px; }
+.service-option small { color: var(--muted); display: block; font-size: .68rem; line-height: 1.4; }
+.service-option b { font: .7rem var(--mono); white-space: nowrap; }
+.service-option i { align-items: center; border: 1px solid currentColor; border-radius: 50%; display: flex; font: 1rem var(--body); height: 24px; justify-content: center; min-width: 24px; }
+.legacy-service-list { display: none !important; }
+.price-table article small { color: var(--rose-deep); display: block; font: .6rem var(--mono); letter-spacing: .08em; margin-bottom: 6px; text-transform: uppercase; }
+.men-page .price-table article small { color: var(--teal-deep); }
 .barber-gallery-section { background: var(--white); padding: 11vw 10vw; }
 .barber-gallery { display: grid; gap: 18px; grid-template-columns: 1.25fr .9fr .9fr; grid-template-rows: 220px 220px; }
 .barber-gallery figure { margin: 0; min-height: 0; overflow: hidden; position: relative; }
@@ -275,4 +294,6 @@
 	.barber-gallery .gallery-tall { grid-column: span 2; grid-row: span 1; }
 	.hours-section { display: block; }
 	.hours-card { margin-top: 55px; }
+	.service-options { grid-template-columns: 1fr; }
+	.service-option:nth-child(even) { border-left: 0; }
 }

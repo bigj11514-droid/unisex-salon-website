@@ -98,6 +98,20 @@ const services = {
     ["Full reset", "Cut, beard, hot towel ritual", "GH₵ 320+"],
   ],
 };
+const serviceGroups = {
+  women: [
+    { name: "Cuts & styling", intro: "Choose the shape and finish that fits your day.", options: [["Classic cut", "Consultation, wash, shape and finish", "$65+"], ["Blowout", "Smooth, volume or soft waves", "$45+"], ["Silk press", "Clean press with heat protection", "$85+"]] },
+    { name: "Color studio", intro: "Dimensional color with a finish built to last.", options: [["Gloss refresh", "Tone, shine and condition", "$80+"], ["Highlights", "Face frame or full head dimension", "$140+"], ["Balayage", "Hand-painted natural brightness", "$180+"]] },
+    { name: "Texture & protective", intro: "Express yourself with texture, curls and protective styles.", options: [["Natural curls", "Shape, define and diffuse", "$75+"], ["Braids", "Feed-in, knotless or custom pattern", "$120+"], ["Protective styling", "Low-tension install and finish", "$150+"]] },
+    { name: "Skin & beauty", intro: "Small rituals with a visible reset.", options: [["Glow facial", "Cleanse, exfoliate, mask and moisturize", "$65+"], ["Brows & lashes", "Shape, tint or lash finish", "$45+"], ["Manicure", "Shape, care and polished finish", "$40+"]] },
+  ],
+  men: [
+    { name: "Fades", intro: "Pick your fade level, finish and line-up.", options: [["Low fade", "Subtle fade around the ears and neckline", "GH₵ 160+"], ["Mid fade", "Balanced fade with a clean blend", "GH₵ 190+"], ["High fade", "Bold high blend with sharp contrast", "GH₵ 220+"], ["Skin fade", "Zero-bald finish with detailed blending", "GH₵ 240+"]] },
+    { name: "Cuts & tapers", intro: "Classic shapes, clean lines and everyday confidence.", options: [["Low cut", "Clean low cut, wash and finish", "GH₵ 140+"], ["Taper cut", "Temple taper, line-up and styling", "GH₵ 180+"], ["Scissor cut", "Longer shape with scissor texture", "GH₵ 200+"], ["Kids cut", "Gentle cut and styling for ages 12 and under", "GH₵ 120+"]] },
+    { name: "Beard & shave", intro: "Detailed grooming for a sharper finish.", options: [["Beard trim", "Shape, line-up and conditioning", "GH₵ 100+"], ["Hot towel shave", "Steam, straight-razor shave and balm", "GH₵ 140+"], ["Hair + beard", "Full haircut paired with beard design", "GH₵ 280+"]] },
+    { name: "Scalp & skin", intro: "Reset the scalp and keep skin looking fresh.", options: [["Scalp treatment", "Cleanse, cool and rebalance", "GH₵ 120+"], ["Men's facial", "Cleanse, exfoliate, mask and moisturize", "GH₵ 150+"]] },
+  ],
+};
 const packages = {
   women: [
     {
