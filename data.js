@@ -23,7 +23,7 @@ const products = [
       "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=85",
     description:
       "A mineral-rich mask for a calm, luminous reset between appointments.",
-    features: ["Barrier support", "Rosewater + zinc", "15-minute ritual"],
+    features: ["Barrier support", "Rosewater + zinc", "15-minute treatment"],
     needs: "Apply to clean skin twice a week. Leave for 15 minutes and rinse.",
   },
   {
@@ -82,20 +82,20 @@ const products = [
 ];
 const services = {
   women: [
-    ["Cut & finish", "Shape, wash, styling ritual", "$65+"],
+    ["Cut & finish", "Shape, wash, styling service", "$65+"],
     ["Color studio", "Gloss, dimension, full transformation", "$120+"],
     ["Texture & form", "Silk press, curls, protective styling", "$95+"],
-    ["Skin ritual", "Express facial, glow reset, brows", "$45+"],
+    ["Skin service", "Express facial, glow reset, brows", "$45+"],
   ],
   men: [
-    ["Precision cut", "Clipper, scissor, wash, finish", "GH₵ 180+"],
-    ["Low cut", "Clean low cut, wash, finish", "GH₵ 140+"],
-    ["Signature fade", "Skin fade, taper, texture styling", "GH₵ 220+"],
-    ["Taper cut", "Temple taper, line-up, styling", "GH₵ 180+"],
-    ["Beard trim", "Shape, hot towel, conditioning", "GH₵ 100+"],
-    ["Hair + beard", "Full haircut and beard design", "GH₵ 280+"],
-    ["Kids cut", "Gentle cut and styling for ages 12 and under", "GH₵ 120+"],
-    ["Full reset", "Cut, beard, hot towel ritual", "GH₵ 320+"],
+    ["Precision cut", "Clipper, scissor, wash, finish", "GH₵ 80+"],
+    ["Low cut", "Clean low cut, wash, finish", "GH₵ 50+"],
+    ["Signature fade", "Skin fade, taper, texture styling", "GH₵ 100+"],
+    ["Taper cut", "Temple taper, line-up, styling", "GH₵ 80+"],
+    ["Beard trim", "Shape, hot towel, conditioning", "GH₵ 50+"],
+    ["Hair + beard", "Full haircut and beard design", "GH₵ 150+"],
+    ["Kids cut", "Gentle cut and styling for ages 12 and under", "GH₵ 50+"],
+    ["Full reset", "Cut, beard, hot towel service", "GH₵ 180+"],
   ],
 };
 const serviceGroups = {
@@ -129,7 +129,7 @@ const serviceGroups = {
     },
     {
       name: "Skin & beauty",
-      intro: "Small rituals with a visible reset.",
+      intro: "Small services with a visible reset.",
       options: [
         ["Glow facial", "Cleanse, exfoliate, mask and moisturize", "$65+"],
         ["Brows & lashes", "Shape, tint or lash finish", "$45+"],
@@ -142,23 +142,23 @@ const serviceGroups = {
       name: "Fades",
       intro: "Pick your fade level, finish and line-up.",
       options: [
-        ["Low fade", "Subtle fade around the ears and neckline", "GH₵ 160+"],
-        ["Mid fade", "Balanced fade with a clean blend", "GH₵ 190+"],
-        ["High fade", "Bold high blend with sharp contrast", "GH₵ 220+"],
-        ["Skin fade", "Zero-bald finish with detailed blending", "GH₵ 240+"],
+        ["Low fade", "Subtle fade around the ears and neckline", "GH₵ 50+"],
+        ["Mid fade", "Balanced fade with a clean blend", "GH₵ 70+"],
+        ["High fade", "Bold high blend with sharp contrast", "GH₵ 90+"],
+        ["Skin fade", "Zero-bald finish with detailed blending", "GH₵ 110+"],
       ],
     },
     {
       name: "Cuts & tapers",
       intro: "Classic shapes, clean lines and everyday confidence.",
       options: [
-        ["Low cut", "Clean low cut, wash and finish", "GH₵ 140+"],
-        ["Taper cut", "Temple taper, line-up and styling", "GH₵ 180+"],
-        ["Scissor cut", "Longer shape with scissor texture", "GH₵ 200+"],
+        ["Low cut", "Clean low cut, wash and finish", "GH₵ 50+"],
+        ["Taper cut", "Temple taper, line-up and styling", "GH₵ 80+"],
+        ["Scissor cut", "Longer shape with scissor texture", "GH₵ 90+"],
         [
           "Kids cut",
           "Gentle cut and styling for ages 12 and under",
-          "GH₵ 120+",
+          "GH₵ 50+",
         ],
       ],
     },
@@ -166,17 +166,17 @@ const serviceGroups = {
       name: "Beard & shave",
       intro: "Detailed grooming for a sharper finish.",
       options: [
-        ["Beard trim", "Shape, line-up and conditioning", "GH₵ 100+"],
-        ["Hot towel shave", "Steam, straight-razor shave and balm", "GH₵ 140+"],
-        ["Hair + beard", "Full haircut paired with beard design", "GH₵ 280+"],
+        ["Beard trim", "Shape, line-up and conditioning", "GH₵ 50+"],
+        ["Hot towel shave", "Steam, straight-razor shave and balm", "GH₵ 70+"],
+        ["Hair + beard", "Full haircut paired with beard design", "GH₵ 150+"],
       ],
     },
     {
       name: "Scalp & skin",
       intro: "Reset the scalp and keep skin looking fresh.",
       options: [
-        ["Scalp treatment", "Cleanse, cool and rebalance", "GH₵ 120+"],
-        ["Men's facial", "Cleanse, exfoliate, mask and moisturize", "GH₵ 150+"],
+        ["Scalp treatment", "Cleanse, cool and rebalance", "GH₵ 60+"],
+        ["Men's facial", "Cleanse, exfoliate, mask and moisturize", "GH₵ 80+"],
       ],
     },
   ],
@@ -195,14 +195,14 @@ const packages = {
       products: ["Cloud Gloss", "Soft Reset mask", "Mineral SPF veil"],
     },
     {
-      name: "Color Ritual",
+      name: "Color Service",
       summary: "Gloss refresh + deep conditioning",
       price: "$145",
       duration: "120 min",
       image:
         "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=900&q=85",
       details:
-        "A color-maintenance ritual that revives dimension while restoring softness and shine.",
+        "A color-maintenance service that revives dimension while restoring softness and shine.",
       products: ["Chrome Mist color guard", "Bond-repair cream", "Cloud Gloss"],
     },
   ],
@@ -210,7 +210,7 @@ const packages = {
     {
       name: "The Full Reset",
       summary: "Precision cut + beard design",
-      price: "GH₵ 280",
+      price: "GH₵ 150",
       duration: "75 min",
       image:
         "https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85",
@@ -224,13 +224,13 @@ const packages = {
     },
     {
       name: "The Clean Start",
-      summary: "Cut + hot towel scalp ritual",
-      price: "GH₵ 220",
+      summary: "Cut + hot towel scalp service",
+      price: "GH₵ 120",
       duration: "60 min",
       image:
         "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=85",
       details:
-        "A precise everyday cut paired with a cooling scalp reset and restorative towel ritual.",
+        "A precise everyday cut paired with a cooling scalp reset and restorative towel service.",
       products: [
         "Clean Guard peppermint wash",
         "Cooling tonic",
