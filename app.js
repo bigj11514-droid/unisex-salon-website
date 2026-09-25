@@ -50,6 +50,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("form#bookingForm").forEach((form) => {
     const dateInput = form.elements.date;
     const timeInput = form.elements.time;
+    const sideInput = form.elements.side;
+    const serviceInput = form.elements.service;
+    if (sideInput) {
+      const updateHomeServices = () => {
+        form.dataset.side = sideInput.value;
+        serviceInput.replaceChildren(new Option("Choose a service", ""));
+        serviceGroups[sideInput.value].forEach((group) => {
+          const groupOptions = document.createElement("optgroup");
+          groupOptions.label = group.name;
+          group.options.forEach(([name]) => groupOptions.add(new Option(name, name)));
+          serviceInput.add(groupOptions);
+        });
+      };
+      updateHomeServices();
+      sideInput.addEventListener("change", updateHomeServices);
+    }
     const today = new Date();
     dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
     const setTimeBounds = () => {
