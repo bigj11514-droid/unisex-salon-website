@@ -49,10 +49,27 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   document.querySelectorAll("form#bookingForm").forEach((form) => {
     const dateInput = form.elements.date;
-    dateInput.min = new Date().toISOString().split("T")[0];
+    const timeInput = form.elements.time;
+    const today = new Date();
+    dateInput.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-${String(today.getDate()).padStart(2, "0")}`;
+    const setTimeBounds = () => {
+      if (!dateInput.value) return;
+      const [year, month, day] = dateInput.value.split("-").map(Number);
+      const weekday = new Date(year, month - 1, day).getDay();
+      timeInput.min = weekday === 0 ? "09:00" : form.dataset.side === "men" && weekday === 6 ? "08:00" : "07:00";
+      timeInput.max = weekday === 0 ? "17:00" : form.dataset.side === "men" && weekday === 6 ? "22:00" : "21:00";
+    };
+    dateInput.addEventListener("change", setTimeBounds);
     form.addEventListener("submit", (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
+      setTimeBounds();
+      if (timeInput.value < timeInput.min || timeInput.value > timeInput.max) {
+        timeInput.setCustomValidity(`Choose a time between ${timeInput.min} and ${timeInput.max} for this date.`);
+        timeInput.reportValidity();
+        timeInput.addEventListener("input", () => timeInput.setCustomValidity(""), { once: true });
+        return;
+      }
       const appointment = {
         id: `NN-${Date.now()}`,
         side: form.dataset.side,
@@ -65,9 +82,13 @@ document.addEventListener("DOMContentLoaded", () => {
         status: "awaiting salon confirmation",
         createdAt: new Date().toISOString(),
       };
-      const saved = JSON.parse(localStorage.getItem("noir-nerve-bookings") || "[]");
-      saved.push(appointment);
-      localStorage.setItem("noir-nerve-bookings", JSON.stringify(saved));
+      try {
+        const saved = JSON.parse(localStorage.getItem("noir-nerve-bookings") || "[]");
+        saved.push(appointment);
+        localStorage.setItem("noir-nerve-bookings", JSON.stringify(saved));
+      } catch {
+        console.warn("This browser could not save the booking request locally.");
+      }
 
       const message = form.querySelector(".form-note");
       message.replaceChildren();
@@ -91,6 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
       whatsappLink.textContent = "Send request to salon on WhatsApp ↗";
       message.append(whatsappLink);
       window.open(whatsappLink.href, "_blank", "noopener,noreferrer");
+      form.querySelector('[type="submit"]').disabled = true;
+      form.querySelector('[type="submit"]').textContent = "Request saved";
     });
   });
   document

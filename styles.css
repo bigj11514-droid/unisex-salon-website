@@ -258,6 +258,7 @@
 @keyframes bookingPulseMen { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--teal); } }
 .booking-whatsapp-link { background: #168a61; border-radius: 2px; color: #fff; display: inline-block; font: .62rem var(--mono); letter-spacing: .04em; margin-top: 12px; padding: 11px 13px; text-transform: uppercase; }
 .booking-whatsapp-link:hover { background: #106d4c; }
+.booking-form button[type="submit"]:disabled { background: #66716b; border-color: #66716b; box-shadow: none; cursor: default; opacity: .9; }
 .hero-price-link {
 	align-items: center;
 	display: inline-flex;
