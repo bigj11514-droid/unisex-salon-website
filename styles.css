@@ -256,6 +256,8 @@
 @keyframes bookingPulse { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--rose); } }
 .men-page .booking-focus { animation-name: bookingPulseMen; }
 @keyframes bookingPulseMen { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--teal); } }
+.booking-whatsapp-link { background: #168a61; border-radius: 2px; color: #fff; display: inline-block; font: .62rem var(--mono); letter-spacing: .04em; margin-top: 12px; padding: 11px 13px; text-transform: uppercase; }
+.booking-whatsapp-link:hover { background: #106d4c; }
 .hero-price-link {
 	align-items: center;
 	display: inline-flex;

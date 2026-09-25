@@ -161,13 +161,15 @@
             <p class="eyebrow">Your chair is waiting</p>
             <h2>Let’s make<br /><em>the change.</em></h2>
           </div>
-          <form class="booking-form" id="bookingForm">
+          <form class="booking-form" id="bookingForm" data-side="women" data-whatsapp="1555018490">
             <label
               >Your name<input
                 type="text"
                 name="name"
                 placeholder="Full name"
                 required /></label
+            ><label
+              >Phone number<input type="tel" name="phone" placeholder="Your mobile number" autocomplete="tel" required /></label
             ><label
               >Choose your service<select name="service" required>
                 <option value="">Choose a service</option>
@@ -195,12 +197,7 @@
                 <option>Rin / Skin services</option>
               </select></label
             ><label
-              >Preferred time<select name="time" required>
-                <option value="">Choose a time</option>
-                <option>Morning / 07:00 — 11:00</option>
-                <option>Afternoon / 12:00 — 16:00</option>
-                <option>Evening / 17:00 — 21:00</option>
-              </select></label
+              >Preferred time<input type="time" name="time" min="07:00" max="21:00" required /></label
             ><button class="button button-light" type="submit">
               Request a booking <span>↗</span>
             </button>

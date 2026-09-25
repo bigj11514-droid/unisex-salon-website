@@ -47,16 +47,52 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.setAttribute("aria-expanded", toggle.classList.contains("open"));
     }),
   );
-  document.querySelectorAll("form#bookingForm").forEach((form) =>
+  document.querySelectorAll("form#bookingForm").forEach((form) => {
+    const dateInput = form.elements.date;
+    dateInput.min = new Date().toISOString().split("T")[0];
     form.addEventListener("submit", (event) => {
       event.preventDefault();
-      const name = form.elements.name.value.trim();
+      if (!form.reportValidity()) return;
+      const appointment = {
+        id: `NN-${Date.now()}`,
+        side: form.dataset.side,
+        name: form.elements.name.value.trim(),
+        phone: form.elements.phone.value.trim(),
+        service: form.elements.service.value,
+        stylist: form.elements.stylist.value,
+        date: form.elements.date.value,
+        time: form.elements.time.value,
+        status: "awaiting salon confirmation",
+        createdAt: new Date().toISOString(),
+      };
+      const saved = JSON.parse(localStorage.getItem("noir-nerve-bookings") || "[]");
+      saved.push(appointment);
+      localStorage.setItem("noir-nerve-bookings", JSON.stringify(saved));
+
       const message = form.querySelector(".form-note");
-      const service = form.elements.service.value;
-      message.textContent = `Thanks ${name || "there"} — your ${service || "booking"} request is in. We’ll call to confirm your chair.`;
-      form.reset();
-    }),
-  );
+      message.replaceChildren();
+      message.append(`Request ${appointment.id} saved. Your time is not confirmed until the salon replies. `);
+      const whatsappMessage = [
+        "Hello NOIR & NERVE, I would like to request an appointment:",
+        `Name: ${appointment.name}`,
+        `Phone: ${appointment.phone}`,
+        `Side: ${appointment.side === "men" ? "His edge" : "Her energy"}`,
+        `Service: ${appointment.service}`,
+        `Preferred artist: ${appointment.stylist}`,
+        `Date: ${appointment.date}`,
+        `Time: ${appointment.time}`,
+        `Request ID: ${appointment.id}`,
+      ].join("\n");
+      const whatsappLink = document.createElement("a");
+      whatsappLink.className = "booking-whatsapp-link";
+      whatsappLink.href = `https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
+      whatsappLink.target = "_blank";
+      whatsappLink.rel = "noopener noreferrer";
+      whatsappLink.textContent = "Send request to salon on WhatsApp ↗";
+      message.append(whatsappLink);
+      window.open(whatsappLink.href, "_blank", "noopener,noreferrer");
+    });
+  });
   document
     .querySelectorAll("[data-download]")
     .forEach((button) =>
@@ -96,6 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener("click", () => {
       const form = document.querySelector("#bookingForm");
       if (!form) return;
+      const service = form.elements.service;
+      let packageOption = [...service.options].find((option) => option.value === button.dataset.bookPackage);
+      if (!packageOption) {
+        packageOption = new Option(button.dataset.bookPackage, button.dataset.bookPackage, true, true);
+        service.add(packageOption);
+      }
+      service.value = button.dataset.bookPackage;
       form.classList.add("booking-focus");
       window.setTimeout(() => form.classList.remove("booking-focus"), 1400);
     });
