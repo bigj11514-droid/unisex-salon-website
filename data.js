@@ -155,11 +155,7 @@ const serviceGroups = {
         ["Low cut", "Clean low cut, wash and finish", "GH₵ 50+"],
         ["Taper cut", "Temple taper, line-up and styling", "GH₵ 80+"],
         ["Scissor cut", "Longer shape with scissor texture", "GH₵ 90+"],
-        [
-          "Kids cut",
-          "Gentle cut and styling for ages 12 and under",
-          "GH₵ 50+",
-        ],
+        ["Kids cut", "Gentle cut and styling for ages 12 and under", "GH₵ 50+"],
       ],
     },
     {

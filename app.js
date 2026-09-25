@@ -59,7 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
         serviceGroups[sideInput.value].forEach((group) => {
           const groupOptions = document.createElement("optgroup");
           groupOptions.label = group.name;
-          group.options.forEach(([name]) => groupOptions.add(new Option(name, name)));
+          group.options.forEach(([name]) =>
+            groupOptions.add(new Option(name, name)),
+          );
           serviceInput.add(groupOptions);
         });
       };
@@ -72,8 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!dateInput.value) return;
       const [year, month, day] = dateInput.value.split("-").map(Number);
       const weekday = new Date(year, month - 1, day).getDay();
-      timeInput.min = weekday === 0 ? "09:00" : form.dataset.side === "men" && weekday === 6 ? "08:00" : "07:00";
-      timeInput.max = weekday === 0 ? "17:00" : form.dataset.side === "men" && weekday === 6 ? "22:00" : "21:00";
+      timeInput.min =
+        weekday === 0
+          ? "09:00"
+          : form.dataset.side === "men" && weekday === 6
+            ? "08:00"
+            : "07:00";
+      timeInput.max =
+        weekday === 0
+          ? "17:00"
+          : form.dataset.side === "men" && weekday === 6
+            ? "22:00"
+            : "21:00";
     };
     dateInput.addEventListener("change", setTimeBounds);
     form.addEventListener("submit", (event) => {
@@ -81,9 +93,15 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!form.reportValidity()) return;
       setTimeBounds();
       if (timeInput.value < timeInput.min || timeInput.value > timeInput.max) {
-        timeInput.setCustomValidity(`Choose a time between ${timeInput.min} and ${timeInput.max} for this date.`);
+        timeInput.setCustomValidity(
+          `Choose a time between ${timeInput.min} and ${timeInput.max} for this date.`,
+        );
         timeInput.reportValidity();
-        timeInput.addEventListener("input", () => timeInput.setCustomValidity(""), { once: true });
+        timeInput.addEventListener(
+          "input",
+          () => timeInput.setCustomValidity(""),
+          { once: true },
+        );
         return;
       }
       const appointment = {
@@ -99,16 +117,22 @@ document.addEventListener("DOMContentLoaded", () => {
         createdAt: new Date().toISOString(),
       };
       try {
-        const saved = JSON.parse(localStorage.getItem("noir-nerve-bookings") || "[]");
+        const saved = JSON.parse(
+          localStorage.getItem("noir-nerve-bookings") || "[]",
+        );
         saved.push(appointment);
         localStorage.setItem("noir-nerve-bookings", JSON.stringify(saved));
       } catch {
-        console.warn("This browser could not save the booking request locally.");
+        console.warn(
+          "This browser could not save the booking request locally.",
+        );
       }
 
       const message = form.querySelector(".form-note");
       message.replaceChildren();
-      message.append(`Request ${appointment.id} saved. Your time is not confirmed until the salon replies. `);
+      message.append(
+        `Request ${appointment.id} saved. Your time is not confirmed until the salon replies. `,
+      );
       const whatsappMessage = [
         "Hello NOIR & NERVE, I would like to request an appointment:",
         `Name: ${appointment.name}`,
@@ -172,9 +196,16 @@ document.addEventListener("DOMContentLoaded", () => {
       const form = document.querySelector("#bookingForm");
       if (!form) return;
       const service = form.elements.service;
-      let packageOption = [...service.options].find((option) => option.value === button.dataset.bookPackage);
+      let packageOption = [...service.options].find(
+        (option) => option.value === button.dataset.bookPackage,
+      );
       if (!packageOption) {
-        packageOption = new Option(button.dataset.bookPackage, button.dataset.bookPackage, true, true);
+        packageOption = new Option(
+          button.dataset.bookPackage,
+          button.dataset.bookPackage,
+          true,
+          true,
+        );
         service.add(packageOption);
       }
       service.value = button.dataset.bookPackage;
