@@ -113,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stylist: form.elements.stylist.value,
         date: form.elements.date.value,
         time: form.elements.time.value,
+        notes: form.elements.notes?.value.trim() || "",
         status: "awaiting salon confirmation",
         createdAt: new Date().toISOString(),
       };
@@ -142,6 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `Preferred artist: ${appointment.stylist}`,
         `Date: ${appointment.date}`,
         `Time: ${appointment.time}`,
+        ...(appointment.notes ? [`Notes: ${appointment.notes}`] : []),
         `Request ID: ${appointment.id}`,
       ].join("\n");
       const whatsappLink = document.createElement("a");
@@ -211,6 +213,17 @@ document.addEventListener("DOMContentLoaded", () => {
       service.value = button.dataset.bookPackage;
       form.classList.add("booking-focus");
       window.setTimeout(() => form.classList.remove("booking-focus"), 1400);
+    });
+  });
+  document.querySelectorAll("[data-stylist-choice]").forEach((choice) => {
+    choice.addEventListener("click", () => {
+      const form = document.querySelector("#bookingForm");
+      if (!form) return;
+      const stylist = form.elements.stylist;
+      const option = [...stylist.options].find(
+        (item) => item.value === choice.dataset.stylistChoice,
+      );
+      if (option) stylist.value = option.value;
     });
   });
 });
