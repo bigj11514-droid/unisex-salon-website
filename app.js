@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const groupOptions = document.createElement("optgroup");
           groupOptions.label = group.name;
           group.options.forEach(([name]) =>
-            groupOptions.add(new Option(name, name)),
+            groupOptions.append(new Option(name, name)),
           );
           serviceInput.add(groupOptions);
         });
