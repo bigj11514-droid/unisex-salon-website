@@ -218,7 +218,21 @@
                 max="21:00"
                 required /></label
             ><label class="booking-notes-label"
-              >Anything we should know? <span>Optional</span><textarea name="notes" rows="3" maxlength="500" placeholder="Hair goals, sensitivities, or other requests"></textarea></label
+              >Anything we should know? <span>Optional</span
+              ><textarea
+                name="notes"
+                rows="3"
+                maxlength="500"
+                placeholder="Hair goals, sensitivities, or other requests"
+              ></textarea></label
+            ><label class="booking-photo-label"
+              >Your photo <span>Optional / for appointment identification</span
+              ><input type="file" name="photo" accept="image/*" />
+              <small>Choose a clear photo of yourself. Maximum 5 MB.</small></label
+            ><div class="booking-photo-preview" data-photo-preview hidden>
+              <img alt="Your selected booking photo preview" />
+              <div><span data-photo-name></span><button type="button" data-photo-remove>Remove photo</button></div>
+            </div>
             ><button class="button button-light" type="submit">
               Request appointment <span>↗</span>
             </button>

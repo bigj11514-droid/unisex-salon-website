@@ -325,7 +325,17 @@
 .booking-form textarea { background: transparent; border: 1px solid #4a5052; color: var(--white); outline: none; padding: 12px; resize: vertical; }
 .booking-form textarea:focus, .booking-form input:focus, .booking-form select:focus { border-color: var(--rose); }
 .booking-notes-label span { color: #a6abad; font-size: .56rem; }
+.booking-photo-label span, .booking-photo-label small { color: #a6abad; font-size: .58rem; line-height: 1.5; }
+.booking-photo-label input[type="file"] { border: 1px dashed #687073; cursor: pointer; padding: 12px; }
+.booking-photo-preview { align-items: center; border: 1px solid #4a5052; display: flex; gap: 14px; padding: 10px; }
+.booking-photo-preview[hidden] { display: none; }
+.booking-photo-preview img { aspect-ratio: 1; height: 76px; object-fit: cover; width: 76px; }
+.booking-photo-preview > div { display: grid; gap: 10px; min-width: 0; }
+.booking-photo-preview [data-photo-name] { color: var(--white); font: .62rem var(--mono); overflow-wrap: anywhere; }
+.booking-photo-preview button { background: none; border: 0; color: var(--rose); font: .6rem var(--mono); justify-self: start; padding: 0; text-decoration: underline; }
 .men-page .booking-form textarea:focus { border-color: var(--teal); }
+.men-page .booking-photo-preview button { color: var(--teal); }
+.men-page .booking-photo-label input[type="file"]:focus { border-color: var(--teal); }
 @media (max-width: 800px) {
 	.team-section, .faq-section { padding: 22vw 8vw; }
 	.team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }

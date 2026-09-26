@@ -266,9 +266,17 @@
           <div>
             <p class="eyebrow">Your chair is waiting</p>
             <h2>Make your<br /><em>entrance.</em></h2>
-            <p>Choose your cut or grooming service, preferred barber, date and time. The salon will confirm availability with you.</p>
+            <p>
+              Choose your cut or grooming service, preferred barber, date and
+              time. The salon will confirm availability with you.
+            </p>
           </div>
-          <form class="booking-form" id="bookingForm" data-side="men" data-whatsapp="233555018490">
+          <form
+            class="booking-form"
+            id="bookingForm"
+            data-side="men"
+            data-whatsapp="233555018490"
+          >
             <label
               >Your name<input
                 type="text"
@@ -276,7 +284,12 @@
                 placeholder="Full name"
                 required /></label
             ><label
-              >Phone number<input type="tel" name="phone" placeholder="Your mobile number" autocomplete="tel" required /></label
+              >Phone number<input
+                type="tel"
+                name="phone"
+                placeholder="Your mobile number"
+                autocomplete="tel"
+                required /></label
             ><label
               >Choose your service<select name="service" required>
                 <option value="">Choose a service</option>
@@ -305,9 +318,28 @@
                 <option>Rin / Skin services</option>
               </select></label
             ><label
-              >Preferred time<input type="time" name="time" min="07:00" max="21:00" required /></label
+              >Preferred time<input
+                type="time"
+                name="time"
+                min="07:00"
+                max="21:00"
+                required /></label
             ><label class="booking-notes-label"
-              >Anything we should know? <span>Optional</span><textarea name="notes" rows="3" maxlength="500" placeholder="Hair goals, sensitivities, or other requests"></textarea></label
+              >Anything we should know? <span>Optional</span
+              ><textarea
+                name="notes"
+                rows="3"
+                maxlength="500"
+                placeholder="Hair goals, sensitivities, or other requests"
+              ></textarea></label
+            ><label class="booking-photo-label"
+              >Your photo <span>Optional / for appointment identification</span
+              ><input type="file" name="photo" accept="image/*" />
+              <small>Choose a clear photo of yourself. Maximum 5 MB.</small></label
+            ><div class="booking-photo-preview" data-photo-preview hidden>
+              <img alt="Your selected booking photo preview" />
+              <div><span data-photo-name></span><button type="button" data-photo-remove>Remove photo</button></div>
+            </div>
             ><button class="button button-light" type="submit">
               Request appointment <span>↗</span>
             </button>

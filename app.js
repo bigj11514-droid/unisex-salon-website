@@ -52,6 +52,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const timeInput = form.elements.time;
     const sideInput = form.elements.side;
     const serviceInput = form.elements.service;
+    const photoInput = form.elements.photo;
+    const photoPreview = form.querySelector("[data-photo-preview]");
+    let photoPreviewUrl = "";
+    const clearPhoto = () => {
+      photoInput.value = "";
+      photoInput.setCustomValidity("");
+      if (photoPreviewUrl) URL.revokeObjectURL(photoPreviewUrl);
+      photoPreviewUrl = "";
+      photoPreview.hidden = true;
+    };
+    photoInput.addEventListener("change", () => {
+      const photo = photoInput.files[0];
+      photoInput.setCustomValidity("");
+      if (!photo) {
+        clearPhoto();
+        return;
+      }
+      if (!photo.type.startsWith("image/")) {
+        clearPhoto();
+        photoInput.setCustomValidity("Choose an image file.");
+        photoInput.reportValidity();
+        return;
+      }
+      if (photo.size > 5 * 1024 * 1024) {
+        clearPhoto();
+        photoInput.setCustomValidity("Choose an image smaller than 5 MB.");
+        photoInput.reportValidity();
+        return;
+      }
+      if (photoPreviewUrl) URL.revokeObjectURL(photoPreviewUrl);
+      photoPreviewUrl = URL.createObjectURL(photo);
+      photoPreview.querySelector("img").src = photoPreviewUrl;
+      photoPreview.querySelector("[data-photo-name]").textContent = photo.name;
+      photoPreview.hidden = false;
+    });
+    photoPreview
+      .querySelector("[data-photo-remove]")
+      .addEventListener("click", clearPhoto);
     if (sideInput) {
       const updateHomeServices = () => {
         form.dataset.side = sideInput.value;
@@ -88,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
             : "21:00";
     };
     dateInput.addEventListener("change", setTimeBounds);
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (!form.reportValidity()) return;
       setTimeBounds();
@@ -146,6 +184,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ...(appointment.notes ? [`Notes: ${appointment.notes}`] : []),
         `Request ID: ${appointment.id}`,
       ].join("\n");
+      const photo = photoInput.files[0];
       const whatsappLink = document.createElement("a");
       whatsappLink.className = "booking-whatsapp-link";
       whatsappLink.href = `https://wa.me/${form.dataset.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`;
@@ -153,7 +192,31 @@ document.addEventListener("DOMContentLoaded", () => {
       whatsappLink.rel = "noopener noreferrer";
       whatsappLink.textContent = "Send request to salon on WhatsApp ↗";
       message.append(whatsappLink);
-      window.open(whatsappLink.href, "_blank", "noopener,noreferrer");
+      if (photo && navigator.canShare?.({ files: [photo] })) {
+        message.prepend(
+          "Choose WhatsApp in the share menu to send your booking details and photo. ",
+        );
+        try {
+          await navigator.share({
+            title: "NOIR & NERVE appointment request",
+            text: whatsappMessage,
+            files: [photo],
+          });
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            message.prepend(
+              "Photo sharing did not open. Use the WhatsApp link and attach your photo there. ",
+            );
+          }
+        }
+      } else {
+        if (photo) {
+          message.prepend(
+            "Your photo is previewed here. Attach it in WhatsApp after opening the booking message. ",
+          );
+        }
+        window.open(whatsappLink.href, "_blank", "noopener,noreferrer");
+      }
       form.querySelector('[type="submit"]').disabled = true;
       form.querySelector('[type="submit"]').textContent = "Request saved";
     });
