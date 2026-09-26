@@ -302,3 +302,37 @@
 	.service-options { grid-template-columns: 1fr; }
 	.service-option:nth-child(even) { border-left: 0; }
 }
+
+.team-section, .faq-section { padding: 11vw 10vw; }
+.team-section { background: var(--white); }
+.team-grid { display: grid; gap: 20px; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.team-card { background: var(--paper); border: 1px solid var(--line); min-width: 0; }
+.team-card > img { aspect-ratio: 1.15; display: block; object-fit: cover; width: 100%; }
+.team-card-copy { padding: 22px; }
+.team-card-copy .card-kicker { color: var(--rose-deep); }
+.team-card h3 { font-size: 1.7rem; margin: 13px 0 8px; }
+.team-card p { color: var(--muted); font-size: .78rem; line-height: 1.6; min-height: 40px; }
+.team-book-link { border-bottom: 1px solid var(--ink); display: inline-block; font: .63rem var(--mono); padding-bottom: 7px; text-transform: uppercase; }
+.team-book-link:hover { color: var(--rose-deep); }
+.faq-section { background: var(--paper); }
+.faq-list { border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); padding: 20px 0; }
+.faq-list summary { cursor: pointer; font-family: var(--display); font-size: 1.05rem; list-style: none; padding-right: 35px; position: relative; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font: 1.2rem var(--mono); position: absolute; right: 5px; top: 0; }
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { color: var(--muted); font-size: .82rem; line-height: 1.7; margin: 14px 45px 2px 0; max-width: 650px; }
+.booking-form textarea { background: transparent; border: 1px solid #4a5052; color: var(--white); outline: none; padding: 12px; resize: vertical; }
+.booking-form textarea:focus, .booking-form input:focus, .booking-form select:focus { border-color: var(--rose); }
+.booking-notes-label span { color: #a6abad; font-size: .56rem; }
+.men-page .booking-form textarea:focus { border-color: var(--teal); }
+@media (max-width: 800px) {
+	.team-section, .faq-section { padding: 22vw 8vw; }
+	.team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.team-card-copy { padding: 18px; }
+}
+@media (max-width: 520px) {
+	.team-grid { grid-template-columns: 1fr; }
+	.team-card > img { aspect-ratio: 1.3; }
+	.team-card p { min-height: 0; }
+}
