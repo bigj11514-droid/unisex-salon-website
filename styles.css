@@ -185,15 +185,13 @@
 .package-products li::before { color: var(--rose-deep); content: "+"; font: .8rem var(--mono); }
 .men-page .package-products li::before { color: var(--teal-deep); }
 .service-list[data-service-menu] { border-top: 0; display: grid; gap: 18px; }
-.service-group { border: 1px solid var(--line); border-radius: 2px; display: flex; flex-direction: column; overflow: hidden;  }
-.service-group-heading { align-items: center; background: var(--white); display: flex; gap: 22px; padding: 24px; flex-direction: column; }
-.service-group-heading { order: 0; width: 150%; }
+.service-group { border: 1px solid var(--line); border-radius: 2px; display: grid; grid-template-columns: minmax(180px, .7fr) minmax(0, 1.3fr); overflow: hidden; }
+.service-group-heading { align-items: flex-start; background: var(--white); display: flex; gap: 18px; padding: 24px; }
 .service-group-heading > span { color: var(--rose-deep); font: .68rem var(--mono); }
 .men-page .service-group-heading > span { color: var(--teal-deep); }
 .service-group-heading h3 { font-size: 1.45rem; margin: 0 0 6px; }
 .service-group-heading p { color: var(--muted); font-size: .75rem; margin: 0; }
-.service-options { display: grid; grid-template-columns: repeat(2, 1fr); }
-.service-options { order: 1; width: 100%; }
+.service-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .service-option { align-items: center; background: transparent; border: 0; border-top: 1px solid var(--line); display: flex; gap: 16px; justify-content: space-between; padding: 19px 10px; text-align: left; transition: background .25s, padding .25s; }
 .service-option:nth-child(even) { border-left: 1px solid var(--line); }
 .service-option:hover, .service-option.is-selected { background: rgba(232,181,168,.2); padding-left: 29px; }
@@ -258,6 +256,12 @@
 @keyframes bookingPulseMen { 0%, 100% { box-shadow: none; } 30% { box-shadow: 0 0 0 7px var(--teal); } }
 .booking-whatsapp-link { background: #168a61; border-radius: 2px; color: #fff; display: inline-block; font: .62rem var(--mono); letter-spacing: .04em; margin-top: 12px; padding: 11px 13px; text-transform: uppercase; }
 .booking-whatsapp-link:hover { background: #106d4c; }
+@media (max-width: 700px) {
+	.service-group { grid-template-columns: 1fr; }
+	.service-group-heading { padding: 20px; }
+	.service-options { grid-template-columns: 1fr; }
+	.service-option:nth-child(even) { border-left: 0; }
+}
 .booking-form button[type="submit"]:disabled { background: #66716b; border-color: #66716b; box-shadow: none; cursor: default; opacity: .9; }
 .hero-price-link {
 	align-items: center;
