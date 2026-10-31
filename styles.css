@@ -262,6 +262,41 @@
 	.service-options { grid-template-columns: 1fr; }
 	.service-option:nth-child(even) { border-left: 0; }
 }
+.wall-qr-poster { gap: 12px; padding: 22px; text-align: center; }
+.wall-qr-brand { font: 700 .9rem var(--display); letter-spacing: .13em; }
+.wall-qr-brand i { color: var(--teal-deep); font-style: normal; font-weight: 400; }
+.wall-qr-kicker { color: var(--teal-deep); font: .58rem var(--mono); letter-spacing: .12em; margin: 7px 0 0; }
+.wall-qr-poster h2 { font-size: 1.9rem; line-height: .95; margin: 0; }
+.wall-qr-poster h2 em { color: var(--teal-deep); }
+.wall-qr-copy { color: var(--muted); font-size: .68rem; line-height: 1.5; margin: 0; }
+.wall-qr-poster img { aspect-ratio: 1; background: white; display: block; max-width: 100%; object-fit: contain; width: 180px; }
+.wall-qr-poster [data-wall-qr-status] { font-size: .55rem; line-height: 1.4; }
+.wall-qr-poster button { width: 100%; }
+.wall-qr-poster button:disabled { cursor: not-allowed; opacity: .55; }
+@page { size: A4 portrait; margin: 0; }
+@media print {
+	body * { visibility: hidden !important; }
+	.wall-qr-poster, .wall-qr-poster * { visibility: visible !important; }
+	.wall-qr-poster {
+		align-items: center;
+		background: white;
+		border: 0;
+		box-shadow: none;
+		gap: 5mm;
+		inset: 0;
+		justify-content: center;
+		max-width: none;
+		min-height: 100vh;
+		position: fixed;
+		width: 100%;
+	}
+	.wall-qr-poster img { width: 82mm; }
+	.wall-qr-poster h2 { font-size: 28pt; }
+	.wall-qr-brand { font-size: 16pt; }
+	.wall-qr-kicker, .wall-qr-poster [data-wall-qr-status] { font-size: 9pt; }
+	.wall-qr-copy { font-size: 12pt; }
+	.wall-qr-poster button { display: none; }
+}
 .booking-form button[type="submit"]:disabled { background: #66716b; border-color: #66716b; box-shadow: none; cursor: default; opacity: .9; }
 .hero-price-link {
 	align-items: center;

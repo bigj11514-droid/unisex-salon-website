@@ -43,11 +43,16 @@
           >
         </div>
       </div>
-      <div class="qr-panel">
-        <img
-          src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=https%3A%2F%2Fexample.com%2Fpricing-men.html"
-          alt="QR code for men's price list"
-        /><span>SCAN / SAVE / SHARE</span>
+      <div class="qr-panel wall-qr-poster" data-wall-qr>
+        <div class="wall-qr-brand">NOIR <i>&</i> NERVE</div>
+        <p class="wall-qr-kicker">BARBER / SERVICE MENU</p>
+        <h2>Find your<br /><em>next cut.</em></h2>
+        <p class="wall-qr-copy">Scan to browse men's services and current prices.</p>
+        <img data-wall-qr-image alt="QR code for the men's service and price list" />
+        <span data-wall-qr-status aria-live="polite">Preparing QR code</span>
+        <button class="button button-dark" data-print-qr type="button" disabled>
+          Print wall QR <span>↓</span>
+        </button>
       </div>
       <div class="price-table" data-price-table="men"></div>
     </main>
