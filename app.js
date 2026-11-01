@@ -23,20 +23,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const qrImage = wallQr.querySelector("[data-wall-qr-image]");
     const qrStatus = wallQr.querySelector("[data-wall-qr-status]");
     const printButton = wallQr.querySelector("[data-print-qr]");
-    if (window.location.protocol === "http:" || window.location.protocol === "https:") {
+    if (
+      window.location.protocol === "http:" ||
+      window.location.protocol === "https:"
+    ) {
       const destination = new URL(window.location.href);
       destination.search = "";
       destination.hash = "";
-      qrImage.addEventListener("load", () => {
-        qrStatus.textContent = "SCAN FOR SERVICES + PRICES";
-        printButton.disabled = false;
-      }, { once: true });
-      qrImage.addEventListener("error", () => {
-        qrStatus.textContent = "QR code could not load. Check your connection.";
-      }, { once: true });
+      qrImage.addEventListener(
+        "load",
+        () => {
+          qrStatus.textContent = "SCAN FOR SERVICES + PRICES";
+          printButton.disabled = false;
+        },
+        { once: true },
+      );
+      qrImage.addEventListener(
+        "error",
+        () => {
+          qrStatus.textContent =
+            "QR code could not load. Check your connection.";
+        },
+        { once: true },
+      );
       qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=720x720&margin=24&data=${encodeURIComponent(destination.href)}`;
     } else {
-      qrStatus.textContent = "Publish this page online to create its wall QR code.";
+      qrStatus.textContent =
+        "Publish this page online to create its wall QR code.";
     }
     printButton.addEventListener("click", () => window.print());
   }
