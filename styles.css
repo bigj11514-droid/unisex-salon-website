@@ -228,8 +228,9 @@
 .men-page .style-hero-copy::after { background: var(--teal); }
 .style-hero-copy .eyebrow, .style-hero-copy > p:not(.eyebrow) { color: rgba(255,255,255,.8); }
 .style-hero-copy .text-link { border-color: var(--white); color: var(--white); }
-.style-hero-copy .hero-price-link small { color: rgba(255,255,255,.72); }
-.style-hero-copy .hero-price-link strong { color: var(--white); }
+.style-hero-copy .hero-price-link small { color: var(--muted); }
+.style-hero-copy .hero-price-link strong { color: var(--rose-deep); }
+.men-page .style-hero-copy .hero-price-link strong { color: var(--teal-deep); }
 .style-hero-copy::before { transition: transform .75s cubic-bezier(.2,.7,.2,1), filter .75s ease; }
 .style-hero-copy:hover::before { filter: saturate(1.12); transform: scale(1.08); }
 .style-hero-copy h1 { cursor: default; position: relative; transition: color .35s, letter-spacing .35s, transform .35s; }
@@ -300,12 +301,18 @@
 .booking-form button[type="submit"]:disabled { background: #66716b; border-color: #66716b; box-shadow: none; cursor: default; opacity: .9; }
 .hero-price-link {
 	align-items: center;
+	background: var(--white);
+	border: 2px solid var(--rose-deep);
+	box-shadow: 4px 4px 0 var(--rose);
 	display: inline-flex;
-	gap: 11px;
-	min-width: 170px;
-	transition: transform .25s;
+	gap: 13px;
+	min-height: 58px;
+	min-width: 210px;
+	padding: 9px 15px 9px 10px;
+	transition: background .2s, box-shadow .2s, transform .2s;
 }
-.hero-price-link:hover { transform: translateY(-3px); }
+.hero-price-link:hover { box-shadow: 2px 2px 0 var(--rose-deep); transform: translate(2px, 2px); }
+.hero-price-link:focus-visible { outline: 3px solid var(--white); outline-offset: 4px; }
 .price-icon {
 	align-items: center;
 	background: var(--rose);
@@ -325,7 +332,8 @@
 	background: var(--teal);
 	border-color: var(--teal-deep);
 }
-.men-page .hero-price-link strong { color: var(--teal-deep); }
+.men-page .hero-price-link { border-color: var(--teal-deep); box-shadow: 4px 4px 0 var(--teal); }
+.men-page .hero-price-link:hover { box-shadow: 2px 2px 0 var(--teal-deep); }
 .hero-actions { flex-wrap: wrap; row-gap: 20px; }
 .site-header .header-cta { white-space: nowrap; }
 @media (max-width: 800px) {
