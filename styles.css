@@ -406,7 +406,7 @@
 .men-page .booking-form textarea:focus { border-color: var(--teal); }
 .men-page .booking-photo-preview button { color: var(--teal); }
 .men-page .booking-photo-label input[type="file"]:focus { border-color: var(--teal); }
-.pricing-main { max-width: 1440px; }
+.pricing-main { max-width: none; width: 100%; }
 .price-table { min-width: 0; width: 100%; }
 @media (max-width: 800px) {
 	.team-section, .faq-section { padding: 22vw 8vw; }
