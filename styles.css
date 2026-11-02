@@ -203,6 +203,17 @@
 .legacy-service-list { display: none !important; }
 .price-table article small { color: var(--rose-deep); display: block; font: .6rem var(--mono); letter-spacing: .08em; margin-bottom: 6px; text-transform: uppercase; }
 .men-page .price-table article small { color: var(--teal-deep); }
+.price-table { border-top: 2px solid var(--rose-deep); }
+.price-table article { background: var(--white); padding-left: 20px; padding-right: 20px; transition: background .2s; }
+.price-table article:nth-child(even) { background: rgba(232,181,168,.12); }
+.price-table article:hover { background: rgba(232,181,168,.24); }
+.price-table article small { background: rgba(232,181,168,.2); border-radius: 2px; display: inline-block; padding: 5px 8px; }
+.price-table article strong { background: var(--rose-deep); color: var(--white); min-width: 112px; padding: 10px 12px; text-align: center; white-space: nowrap; }
+.men-page .price-table { border-top-color: var(--teal-deep); }
+.men-page .price-table article:nth-child(even) { background: rgba(159,197,189,.14); }
+.men-page .price-table article:hover { background: rgba(159,197,189,.28); }
+.men-page .price-table article small { background: rgba(159,197,189,.24); }
+.men-page .price-table article strong { background: var(--teal-deep); }
 .barber-gallery-section { background: var(--white); padding: 11vw 10vw; }
 .barber-gallery { display: grid; gap: 18px; grid-template-columns: 1.25fr .9fr .9fr; grid-template-rows: 220px 220px; }
 .barber-gallery figure { margin: 0; min-height: 0; overflow: hidden; position: relative; }
