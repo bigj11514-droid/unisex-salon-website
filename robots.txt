@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://noirandnerve.studio/sitemap.xml
